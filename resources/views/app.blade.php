@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
  
-    <title>Start</title>
+    <title>PT Lapi Divusi</title>
     <link rel="icon" type="png" href="{{ asset('image/laravel-logo.png') }}">
 
     <!-- Styles -->
