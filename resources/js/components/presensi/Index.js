@@ -1,19 +1,19 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import SweetAlert from "react-bootstrap-sweetalert";
 import {
     AiFillDelete,
     AiFillEdit,
     AiFillEye,
     AiOutlinePlus
 } from "react-icons/ai";
-import { Link } from "react-router-dom";
-import SweetAlert from "react-bootstrap-sweetalert";
 import axios from "axios";
 
-class Karyawan extends Component {
+class Presensi extends Component {
     constructor() {
         super();
         this.state = {
-            karyawan: [],
+            presensi: [],
             msg: null,
             type: null,
             flash: false,
@@ -22,15 +22,15 @@ class Karyawan extends Component {
     }
 
     componentDidMount() {
-        axios.get("/api/karyawan").then(response => {
+        axios.get("/api/presensi").then(response => {
             this.setState({
-                karyawan: response.data
+                presensi: response.data
             });
         });
     }
 
-    deleteKaryawan(id) {
-        axios.delete(`/api/karyawan/delete/${id}`).then(response => {
+    deleteItem(id) {
+        axios.delete(`/api/presensi/delete/${id}`).then(response => {
             var msg = response.data.success;
             if (msg == true) {
                 this.doneAlert();
@@ -50,7 +50,7 @@ class Karyawan extends Component {
                     confirmBtnBsStyle="danger"
                     cancelBtnBsStyle="default"
                     title="Hapus Data"
-                    onConfirm={() => this.deleteKaryawan(id)}
+                    onConfirm={() => this.deleteItem(id)}
                     onCancel={() => this.doneAlert()}
                     focusCancelBtn
                 >
@@ -73,7 +73,7 @@ class Karyawan extends Component {
                     onCancel={this.doneAlert()}
                     confirmBtnText="Ya"
                 >
-                    Karyawan Berhasil Dihapus!
+                    Presensi Berhasil Dihapus!
                 </SweetAlert>
             );
         };
@@ -94,17 +94,20 @@ class Karyawan extends Component {
     }
 
     render() {
-        const { karyawan } = this.state;
+        const { presensi } = this.state;
+        {
+            console.log(presensi);
+        }
         return (
             <div className="container py-4">
                 <div className="row justify-content-center">
                     <div className="col-md-10">
                         <div className="card">
-                            <div className="card-header">Semua Karyawan</div>
+                            <div className="card-header">Semua Presensi</div>
                             <div className="card-body">
                                 <Link
                                     className="btn btn-primary mb-3"
-                                    to="/karyawan/create"
+                                    to="/presensi/create"
                                 >
                                     <AiOutlinePlus size={20} />
                                     Tambah
@@ -119,10 +122,11 @@ class Karyawan extends Component {
                                                 >
                                                     No
                                                 </th>
+                                                <th>Tanggal</th>
                                                 <th>NIP</th>
                                                 <th>Nama Karyawan</th>
-                                                <th>Fungsional</th>
-                                                <th>Struktural</th>
+                                                <th>Keterangan</th>
+                                                <th>Catatan</th>
                                                 <th
                                                     width="200px"
                                                     className="text-center"
@@ -132,7 +136,7 @@ class Karyawan extends Component {
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            {karyawan.map((item, index) => (
+                                            {presensi.map((item, index) => (
                                                 <tr key={index}>
                                                     <td
                                                         width="30px"
@@ -140,24 +144,21 @@ class Karyawan extends Component {
                                                     >
                                                         {index + 1}
                                                     </td>
+                                                    <td>{item.tanggal}</td>
                                                     <td>{item.nip}</td>
                                                     <td>
                                                         {item.nama_karyawan}
                                                     </td>
-                                                    <td>
-                                                        {item.nama_fungsional}
-                                                    </td>
-                                                    <td>
-                                                        {item.nama_struktural}
-                                                    </td>
+                                                    <td>{item.keterangan}</td>
+                                                    <td>{item.catatan}</td>
                                                     <td
-                                                        width="250px"
+                                                        width="200px"
                                                         className="text-center"
                                                     >
                                                         <div className="btn-group">
                                                             <Link
                                                                 className="btn btn-primary mx-1"
-                                                                to={`/karyawan/${item.id_karyawan}`}
+                                                                to={`/presensi/${item.id_presensi}`}
                                                             >
                                                                 <AiFillEye
                                                                     size={20}
@@ -165,7 +166,7 @@ class Karyawan extends Component {
                                                             </Link>
                                                             <Link
                                                                 className="btn btn-success mx-1"
-                                                                to={`/karyawan/edit/${item.id_karyawan}`}
+                                                                to={`/presensi/edit/${item.id_presensi}`}
                                                             >
                                                                 <AiFillEdit
                                                                     size={20}
@@ -175,7 +176,7 @@ class Karyawan extends Component {
                                                                 className="btn btn-danger mx-1"
                                                                 onClick={() =>
                                                                     this.confirmationDeleteAlert(
-                                                                        item.id_karyawan
+                                                                        item.id_presensi
                                                                     )
                                                                 }
                                                             >
@@ -200,4 +201,4 @@ class Karyawan extends Component {
     }
 }
 
-export default Karyawan;
+export default Presensi;

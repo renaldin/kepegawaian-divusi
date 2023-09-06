@@ -25,9 +25,9 @@ class KaryawanController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'nama_karyawan' => 'required',
-            'id_fungsional' => 'required',
-            'id_struktural' => 'required',
+            'nama_karyawan'     => 'required',
+            'id_fungsional'     => 'required',
+            'id_struktural'     => 'required',
         ]);
 
         $addKaryawan = \App\Models\ModelKaryawan::create();
@@ -61,10 +61,10 @@ class KaryawanController extends Controller
             $newNip = $lastNip + 1;
         }
 
-        $addKaryawan->nip = $newNip;
-        $addKaryawan->nama_karyawan = $validatedData['nama_karyawan'];
-        $addKaryawan->id_fungsional = $validatedData['id_fungsional'];
-        $addKaryawan->id_struktural = $validatedData['id_struktural'];
+        $addKaryawan->nip               = $newNip;
+        $addKaryawan->nama_karyawan     = $validatedData['nama_karyawan'];
+        $addKaryawan->id_fungsional     = $validatedData['id_fungsional'];
+        $addKaryawan->id_struktural     = $validatedData['id_struktural'];
         $addKaryawan->save();
 
         $msg = [

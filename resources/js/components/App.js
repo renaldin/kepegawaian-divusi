@@ -10,6 +10,12 @@ import Karyawan from "./karyawan/Index";
 import DetailKaryawan from "./karyawan/Detail";
 import CreateKaryawan from "./karyawan/Create";
 import UpdateKaryawan from "./karyawan/Update";
+import Presensi from "./presensi/Index";
+import CreatePresensi from "./presensi/Create";
+import DetailPresensi from "./presensi/Detail";
+import UpdatePresensi from "./presensi/Update";
+import Laporan from "./laporan/Index";
+import CreateLaporan from "./laporan/Create";
 
 class App extends Component {
     render() {
@@ -18,6 +24,7 @@ class App extends Component {
                 <div>
                     <Header />
                     <Switch>
+                        {/* karyawab */}
                         <Route exact path="/" component={Karyawan} />
                         <Route
                             path="/karyawan/create"
@@ -30,6 +37,29 @@ class App extends Component {
                         <Route
                             path="/karyawan/:id_karyawan"
                             component={DetailKaryawan}
+                        />
+                        {/* presensi */}
+                        <Route path="/presensi/index" component={Presensi} />
+                        <Route
+                            path="/presensi/create"
+                            component={CreatePresensi}
+                        />
+                        <Route
+                            path="/presensi/edit/:id_presensi"
+                            component={UpdatePresensi}
+                        />
+                        <Route
+                            path="/presensi/:id_presensi"
+                            component={DetailPresensi}
+                        />
+                        {/* Laporan */}
+                        <Route
+                            path="/laporan/create"
+                            component={CreateLaporan}
+                        />
+                        <Route
+                            path="/laporan/cek/:year/:month"
+                            component={Laporan}
                         />
                     </Switch>
                 </div>
