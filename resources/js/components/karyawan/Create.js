@@ -28,6 +28,7 @@ class CreateKaryawan extends Component {
 
     handleCreateKaryawan(event) {
         event.preventDefault();
+
         const karyawan = {
             nama_karyawan: this.state.nama_karyawan,
             id_fungsional: this.state.id_fungsional,
@@ -176,7 +177,7 @@ class CreateKaryawan extends Component {
                                         Kembali
                                     </Link>
                                     <button className="btn btn-primary float-right">
-                                        Tambah
+                                        Simpan
                                     </button>
                                     {this.state.alert}
                                 </form>

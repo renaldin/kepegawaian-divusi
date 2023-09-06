@@ -16,6 +16,16 @@ use Illuminate\Support\Facades\Route;
 Route::view('/', 'app');
 Route::view('/{path}', 'app');
 
+// karyawan
 Route::view('/karyawan', 'app');
 Route::view('/karyawan/edit/{id}', 'app');
 Route::view('/karyawan/{id}', 'app');
+
+// presensi
+Route::view('/presensi', 'app');
+Route::view('/presensi/edit/{id}', 'app');
+Route::view('/presensi/{id}', 'app');
+
+// Laporan
+Route::view('/laporan/create', 'app');
+Route::view('/laporan/cek/{year}/{month}', 'app');
