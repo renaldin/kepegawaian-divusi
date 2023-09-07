@@ -103,7 +103,7 @@ class Presensi extends Component {
                 <div className="row justify-content-center">
                     <div className="col-md-10">
                         <div className="card">
-                            <div className="card-header">Semua Presensi</div>
+                            <div className="card-header">Data Presensi</div>
                             <div className="card-body">
                                 <Link
                                     className="btn btn-primary mb-3"

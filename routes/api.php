@@ -34,4 +34,4 @@ Route::put('/presensi/{id}', [PresensiController::class, 'update']);
 Route::delete('/presensi/delete/{id}', [PresensiController::class, 'delete']);
 
 // Laporan
-Route::get('/laporan/{year}/{month}', [LaporanController::class, 'buatLaporan']);
+Route::get('/laporan/{year}/{month}', [LaporanController::class, 'showLaporan']);

@@ -81,6 +81,7 @@ class Laporan extends Component {
                 </SweetAlert>
             );
         };
+
         this.setState({
             alert: getAlert()
         });
@@ -118,7 +119,7 @@ class Laporan extends Component {
     }
 
     render() {
-        const { karyawan, month, year } = this.state;
+        const { karyawan, month, year, isLoading } = this.state;
 
         return (
             <div className="container py-4">
@@ -130,7 +131,16 @@ class Laporan extends Component {
                                 Presensi pada bulan {this.handleMonth(
                                     month
                                 )}{" "}
-                                {year}
+                                {year} <br />
+                                <a
+                                    href={`/printPDF/${year}/${month}`}
+                                    disabled={isLoading}
+                                    className="btn btn-primary mt-2"
+                                >
+                                    {isLoading
+                                        ? "Menghasilkan PDF..."
+                                        : "Cetak PDF"}
+                                </a>
                             </div>
                             <div className="card-body">
                                 <div className="table-responsive">

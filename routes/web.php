@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LaporanController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,6 +13,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+
+Route::get('/printPDF/{year}/{month}', [LaporanController::class, 'printPDF']);
 
 Route::view('/', 'app');
 Route::view('/{path}', 'app');
@@ -28,4 +32,4 @@ Route::view('/presensi/{id}', 'app');
 
 // Laporan
 Route::view('/laporan/create', 'app');
-Route::view('/laporan/cek/{year}/{month}', 'app');
+Route::view('/laporan/show/{year}/{month}', 'app');
