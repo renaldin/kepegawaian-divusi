@@ -50,7 +50,7 @@ class CreateLaporan extends Component {
 
     onSuccess() {
         this.props.history.push(
-            `/laporan/cek/${this.state.year}/${this.state.month}`
+            `/laporan/show/${this.state.year}/${this.state.month}`
         );
     }
 
@@ -108,13 +108,17 @@ class CreateLaporan extends Component {
                                         )
                                     }
                                 >
+                                    <button className="btn btn-primary float-right">
+                                        Buat
+                                    </button>
+
                                     <div className="form-group">
                                         <label htmlFor="tanggal">Tanggal</label>
                                         <MonthYearPicker
                                             selectedMonth={this.state.month}
                                             selectedYear={this.state.year}
-                                            minYear={2000}
-                                            maxYear={2030}
+                                            minYear={1888}
+                                            maxYear={2050}
                                             onChangeYear={year =>
                                                 this.setState({ year: year })
                                             }
@@ -125,9 +129,7 @@ class CreateLaporan extends Component {
 
                                         {this.renderError("tanggal")}
                                     </div>
-                                    <button className="btn btn-primary float-right">
-                                        Buat
-                                    </button>
+
                                     {this.state.alert}
                                 </form>
                             </div>

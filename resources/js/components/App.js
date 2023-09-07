@@ -58,7 +58,7 @@ class App extends Component {
                             component={CreateLaporan}
                         />
                         <Route
-                            path="/laporan/cek/:year/:month"
+                            path="/laporan/show/:year/:month"
                             component={Laporan}
                         />
                     </Switch>

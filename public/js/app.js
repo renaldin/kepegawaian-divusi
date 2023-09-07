@@ -95183,7 +95183,7 @@ var App = /*#__PURE__*/function (_Component) {
         path: "/laporan/create",
         component: _laporan_Create__WEBPACK_IMPORTED_MODULE_13__["default"]
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom_cjs_react_router_dom_min__WEBPACK_IMPORTED_MODULE_2__["Route"], {
-        path: "/laporan/cek/:year/:month",
+        path: "/laporan/show/:year/:month",
         component: _laporan_Index__WEBPACK_IMPORTED_MODULE_12__["default"]
       }))));
     }
@@ -95692,7 +95692,7 @@ var Karyawan = /*#__PURE__*/function (_Component) {
         className: "card"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card-header"
-      }, "Semua Karyawan"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "Data Karyawan"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card-body"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
         className: "btn btn-primary mb-3",
@@ -96054,7 +96054,7 @@ var CreateLaporan = /*#__PURE__*/function (_Component) {
   }, {
     key: "onSuccess",
     value: function onSuccess() {
-      this.props.history.push("/laporan/cek/".concat(this.state.year, "/").concat(this.state.month));
+      this.props.history.push("/laporan/show/".concat(this.state.year, "/").concat(this.state.month));
     }
   }, {
     key: "handleFormatDate",
@@ -96116,15 +96116,17 @@ var CreateLaporan = /*#__PURE__*/function (_Component) {
         onSubmit: function onSubmit(event) {
           return _this4.handleCreateLaporan(event, _this4.state.year, _this4.state.month);
         }
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "btn btn-primary float-right"
+      }, "Buat"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "tanggal"
       }, "Tanggal"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_month_year_picker__WEBPACK_IMPORTED_MODULE_2__["default"], {
         selectedMonth: this.state.month,
         selectedYear: this.state.year,
-        minYear: 2000,
-        maxYear: 2030,
+        minYear: 1888,
+        maxYear: 2050,
         onChangeYear: function onChangeYear(year) {
           return _this4.setState({
             year: year
@@ -96135,9 +96137,7 @@ var CreateLaporan = /*#__PURE__*/function (_Component) {
             month: month
           });
         }
-      }), this.renderError("tanggal")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "btn btn-primary float-right"
-      }, "Buat"), this.state.alert))))));
+      }), this.renderError("tanggal")), this.state.alert))))));
     }
   }]);
 
@@ -96323,7 +96323,8 @@ var Laporan = /*#__PURE__*/function (_Component) {
       var _this$state = this.state,
           karyawan = _this$state.karyawan,
           month = _this$state.month,
-          year = _this$state.year;
+          year = _this$state.year,
+          isLoading = _this$state.isLoading;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "container py-4"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -96334,7 +96335,11 @@ var Laporan = /*#__PURE__*/function (_Component) {
         className: "card"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card-body"
-      }, "Laporan ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "Presensi pada bulan ", this.handleMonth(month), " ", year), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "Laporan ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "Presensi pada bulan ", this.handleMonth(month), " ", year, " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "/printPDF/".concat(year, "/").concat(month),
+        disabled: isLoading,
+        className: "btn btn-primary mt-2"
+      }, isLoading ? "Menghasilkan PDF..." : "Cetak PDF")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card-body"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "table-responsive"
@@ -97027,7 +97032,7 @@ var Presensi = /*#__PURE__*/function (_Component) {
         className: "card"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card-header"
-      }, "Semua Presensi"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "Data Presensi"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card-body"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         className: "btn btn-primary mb-3",
