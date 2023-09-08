@@ -89,9 +89,9 @@ class KaryawanController extends Controller
             'nama_karyawan' => 'required',
         ]);
 
-        $pegawai = \App\Models\ModelKaryawan::find($id_karyawan);
-        $pegawai->nama_karyawan = $validatedData['nama_karyawan'];
-        $pegawai->save();
+        $karyawan = \App\Models\ModelKaryawan::find($id_karyawan);
+        $karyawan->nama_karyawan = $validatedData['nama_karyawan'];
+        $karyawan->save();
 
         $msg = [
             'success' => true,
@@ -109,10 +109,10 @@ class KaryawanController extends Controller
             $karyawan->delete();
 
             $success = true;
-            $message = "Pegawai Berhasil Dihapus!";
+            $message = "Karyawan Berhasil Dihapus!";
         } else {
             $success = false;
-            $message = "Pegawai Gagal Dihapus!";
+            $message = "Karyawan Gagal Dihapus!";
         }
 
         $msg = [

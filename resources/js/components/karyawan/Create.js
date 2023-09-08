@@ -1,7 +1,7 @@
-import axios from "axios";
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import SweetAlert from "react-bootstrap-sweetalert";
+import axios from "axios";
 
 class CreateKaryawan extends Component {
     constructor(props) {

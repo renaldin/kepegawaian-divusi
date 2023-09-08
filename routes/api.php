@@ -1,10 +1,11 @@
 <?php
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\FungsionalController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\PresensiController;
+use App\Http\Controllers\StrukturalController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +25,22 @@ Route::get('/karyawan/edit/{id}', [KaryawanController::class, 'detail']);
 Route::get('/karyawan/{id}', [KaryawanController::class, 'detail']);
 Route::put('/karyawan/{id}', [KaryawanController::class, 'update']);
 Route::delete('/karyawan/delete/{id}', [KaryawanController::class, 'delete']);
+
+// fungsional
+Route::get('/fungsional', [FungsionalController::class, 'index']);
+Route::post('/fungsional/store', [FungsionalController::class, 'store']);
+Route::get('/fungsional/edit/{id}', [FungsionalController::class, 'detail']);
+Route::get('/fungsional/{id}', [FungsionalController::class, 'detail']);
+Route::put('/fungsional/{id}', [FungsionalController::class, 'update']);
+Route::delete('/fungsional/delete/{id}', [FungsionalController::class, 'delete']);
+
+// struktural
+Route::get('/struktural', [StrukturalController::class, 'index']);
+Route::post('/struktural/store', [StrukturalController::class, 'store']);
+Route::get('/struktural/edit/{id}', [StrukturalController::class, 'detail']);
+Route::get('/struktural/{id}', [StrukturalController::class, 'detail']);
+Route::put('/struktural/{id}', [StrukturalController::class, 'update']);
+Route::delete('/struktural/delete/{id}', [StrukturalController::class, 'delete']);
 
 // presensi
 Route::get('/presensi', [PresensiController::class, 'index']);
