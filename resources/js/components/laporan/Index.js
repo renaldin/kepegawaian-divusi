@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import SweetAlert from "react-bootstrap-sweetalert";
 import axios from "axios";
 
 class Laporan extends Component {
@@ -31,16 +30,6 @@ class Laporan extends Component {
         });
     }
 
-    deleteItem(id) {
-        axios.delete(`/api/karyawan/delete/${id}`).then(response => {
-            var msg = response.data.success;
-            if (msg == true) {
-                this.doneAlert();
-                this.successAlert();
-            }
-        });
-    }
-
     handleMonth(month) {
         const listMonth = [
             "Januari",
@@ -60,62 +49,6 @@ class Laporan extends Component {
         if (month >= 1 && month <= 12) {
             return listMonth[month - 1];
         }
-    }
-
-    confirmationDeleteAlert(id) {
-        const getAlert = () => {
-            return (
-                <SweetAlert
-                    warning
-                    showCancel
-                    confirmBtnText="Hapus"
-                    cancelBtnText="Batal"
-                    confirmBtnBsStyle="danger"
-                    cancelBtnBsStyle="default"
-                    title="Hapus Data"
-                    onConfirm={() => this.deleteItem(id)}
-                    onCancel={() => this.doneAlert()}
-                    focusCancelBtn
-                >
-                    Apakah Anda yakin akan hapus data ini?
-                </SweetAlert>
-            );
-        };
-
-        this.setState({
-            alert: getAlert()
-        });
-    }
-
-    successAlert() {
-        const getAlert = () => {
-            return (
-                <SweetAlert
-                    success
-                    title="Berhasil!"
-                    onConfirm={() => this.onSuccess()}
-                    onCancel={this.doneAlert()}
-                    timeout={2000}
-                    confirmBtnText="Ya"
-                >
-                    Karyawan Sudah Dihapus!
-                </SweetAlert>
-            );
-        };
-        this.setState({
-            alert: getAlert()
-        });
-    }
-
-    doneAlert() {
-        this.setState({
-            alert: null
-        });
-    }
-
-    onSuccess() {
-        this.componentDidMount();
-        this.doneAlert();
     }
 
     render() {

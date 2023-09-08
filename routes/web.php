@@ -25,6 +25,16 @@ Route::view('/karyawan', 'app');
 Route::view('/karyawan/edit/{id}', 'app');
 Route::view('/karyawan/{id}', 'app');
 
+// fungsional
+Route::view('/fungsional', 'app');
+Route::view('/fungsional/edit/{id}', 'app');
+Route::view('/fungsional/{id}', 'app');
+
+// struktural
+Route::view('/struktural', 'app');
+Route::view('/struktural/edit/{id}', 'app');
+Route::view('/struktural/{id}', 'app');
+
 // presensi
 Route::view('/presensi', 'app');
 Route::view('/presensi/edit/{id}', 'app');
