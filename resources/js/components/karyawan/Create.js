@@ -10,8 +10,8 @@ class CreateKaryawan extends Component {
             nama_karyawan: "",
             id_fungsional: "",
             id_struktural: "",
-            fungsional: "",
-            struktural: "",
+            fungsional: [],
+            struktural: [],
             alert: null,
             errors: []
         };
@@ -183,7 +183,7 @@ class CreateKaryawan extends Component {
                                             <option value="DEFAULT">
                                                 Pilih Struktural
                                             </option>
-                                            {struktural.nap((item, index) => (
+                                            {struktural.map((item, index) => (
                                                 <option
                                                     key={index}
                                                     value={item.id_struktural}
