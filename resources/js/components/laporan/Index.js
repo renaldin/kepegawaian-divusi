@@ -59,7 +59,7 @@ class Laporan extends Component {
                 <div className="row justify-content-center">
                     <div className="col-md-10">
                         <div className="card">
-                            <div className="card-body">
+                            <div className="card-header bg-primary text-white">
                                 Laporan <br />
                                 Presensi pada bulan {this.handleMonth(
                                     month

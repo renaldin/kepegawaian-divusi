@@ -150,7 +150,9 @@ class CreatePresensi extends Component {
                 <div className="row justify-content-center">
                     <div className="col-md-6">
                         <div className="card">
-                            <div className="card-header">Tambah Presensi</div>
+                            <div className="card-header bg-primary text-white">
+                                Tambah Presensi
+                            </div>
                             <div className="card-body">
                                 <form onSubmit={this.handleCreatePresensi}>
                                     <div className="form-group">

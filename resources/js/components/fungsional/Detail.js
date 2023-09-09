@@ -28,7 +28,9 @@ class DetailFungsional extends Component {
                 <div className="row justify-content-center">
                     <div className="col-md-8">
                         <div className="card">
-                            <div className="card-header">Detail Fungsional</div>
+                            <div className="card-header bg-primary text-white">
+                                Detail Fungsional
+                            </div>
                             <div className="card-body">
                                 <table>
                                     <tr>
