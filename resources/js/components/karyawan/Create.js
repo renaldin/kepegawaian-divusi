@@ -10,6 +10,8 @@ class CreateKaryawan extends Component {
             nama_karyawan: "",
             id_fungsional: "",
             id_struktural: "",
+            fungsional: "",
+            struktural: "",
             alert: null,
             errors: []
         };
@@ -18,6 +20,20 @@ class CreateKaryawan extends Component {
         this.handleCreateKaryawan = this.handleCreateKaryawan.bind(this);
         this.hasError = this.hasError.bind(this);
         this.renderError = this.renderError.bind(this);
+    }
+
+    componentDidMount() {
+        axios.get("/api/fungsional").then(response => {
+            this.setState({
+                fungsional: response.data
+            });
+        });
+
+        axios.get("/api/struktural").then(response => {
+            this.setState({
+                struktural: response.data
+            });
+        });
     }
 
     handleFieldChange(event) {
@@ -88,6 +104,8 @@ class CreateKaryawan extends Component {
     }
 
     render() {
+        const { fungsional, struktural } = this.state;
+
         return (
             <div className="container py-4">
                 <div className="row justify-content-center">
@@ -135,11 +153,14 @@ class CreateKaryawan extends Component {
                                             <option value="DEFAULT">
                                                 Pilih Fungsional
                                             </option>
-                                            <option value="1">Engineer</option>
-                                            <option value="2">
-                                                Administrasi
-                                            </option>
-                                            <option value="3">Support</option>
+                                            {fungsional.map((item, index) => (
+                                                <option
+                                                    key={index}
+                                                    value={item.id_fungsional}
+                                                >
+                                                    {item.nama_fungsional}
+                                                </option>
+                                            ))}
                                         </select>
                                         {this.renderError("id_fungsional")}
                                     </div>
@@ -162,11 +183,14 @@ class CreateKaryawan extends Component {
                                             <option value="DEFAULT">
                                                 Pilih Struktural
                                             </option>
-                                            <option value="1">Manager</option>
-                                            <option value="2">
-                                                Team Leader
-                                            </option>
-                                            <option value="3">Staff</option>
+                                            {struktural.nap((item, index) => (
+                                                <option
+                                                    key={index}
+                                                    value={item.id_struktural}
+                                                >
+                                                    {item.nama_struktural}
+                                                </option>
+                                            ))}
                                         </select>
                                         {this.renderError("id_struktural")}
                                     </div>
