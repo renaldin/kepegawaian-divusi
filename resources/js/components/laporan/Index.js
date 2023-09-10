@@ -64,18 +64,18 @@ class Laporan extends Component {
                                 Presensi pada bulan {this.handleMonth(
                                     month
                                 )}{" "}
-                                {year} <br />
+                                {year}
+                            </div>
+                            <div className="card-body">
                                 <a
                                     href={`/printPDF/${year}/${month}`}
                                     disabled={isLoading}
-                                    className="btn btn-primary mt-2"
+                                    className="btn btn-primary my-2"
                                 >
                                     {isLoading
                                         ? "Menghasilkan PDF..."
                                         : "Cetak PDF"}
                                 </a>
-                            </div>
-                            <div className="card-body">
                                 <div className="table-responsive">
                                     <table className="table table-bordered table-hover">
                                         <thead>
