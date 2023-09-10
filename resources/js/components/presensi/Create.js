@@ -98,6 +98,8 @@ class CreatePresensi extends Component {
             var msg = response.data.success;
             if (msg == true) {
                 return this.successAlert();
+            } else {
+                return this.failedAlert();
             }
         });
     }
@@ -111,7 +113,26 @@ class CreatePresensi extends Component {
                 onCancel={this.doneAlert()}
                 confirmBtnText="Ya"
             >
-                Presensi Berhasil Ditambahkan
+                Presensi Berhasil Ditambahkan!
+            </SweetAlert>
+        );
+
+        this.setState({
+            alert: getAlert()
+        });
+    }
+
+    failedAlert() {
+        const getAlert = () => (
+            <SweetAlert
+                error
+                title="Gagal!"
+                onConfirm={() => this.onFailed()}
+                onCancel={this.doneAlert()}
+                confirmBtnText="Ya"
+            >
+                Presensi gagal ditambahkan! Pada tanggal tersebut karyawan sudah
+                melakukan presensi.
             </SweetAlert>
         );
 
@@ -128,6 +149,11 @@ class CreatePresensi extends Component {
 
     onSuccess() {
         this.props.history.push("/presensi/index");
+    }
+
+    onFailed() {
+        this.props.history.push("/presensi/create");
+        this.doneAlert();
     }
 
     hasError(field) {

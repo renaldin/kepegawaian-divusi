@@ -23,6 +23,14 @@ class ModelPresensi extends Model
             ->get();
     }
 
+    public function check($id_karyawan, $tanggal)
+    {
+        return DB::table($this->table)
+            ->where('id_karyawan', $id_karyawan)
+            ->where('tanggal', $tanggal)
+            ->first();
+    }
+
     public function detailAll($where)
     {
         return DB::table($this->table)
