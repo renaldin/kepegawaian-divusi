@@ -97,7 +97,9 @@ class CreateLaporan extends Component {
                 <div className="row justify-content-center">
                     <div className="col-md-6">
                         <div className="card">
-                            <div className="card-header">Buat Laporan</div>
+                            <div className="card-header bg-primary text-white">
+                                Buat Laporan
+                            </div>
                             <div className="card-body">
                                 <form
                                     onSubmit={event =>

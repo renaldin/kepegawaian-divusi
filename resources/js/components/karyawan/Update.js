@@ -102,7 +102,9 @@ class UpdateKaryawan extends Component {
                 <div className="row justify-content-center">
                     <div className="col-md-6">
                         <div className="card">
-                            <div className="card-header">Edit Karyawan</div>
+                            <div className="card-header bg-primary text-white">
+                                Edit Karyawan
+                            </div>
                             <div className="card-body">
                                 <form onSubmit={this.handleUpdateKaryawan}>
                                     <div className="form-group">

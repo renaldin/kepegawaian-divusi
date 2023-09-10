@@ -100,7 +100,9 @@ class Struktural extends Component {
                 <div className="row justify-content-center">
                     <div className="col-md-10">
                         <div className="card">
-                            <div className="card-header">Data Struktural</div>
+                            <div className="card-header bg-primary text-white">
+                                Data Struktural
+                            </div>
                             <div className="card-body">
                                 <Link
                                     className="btn btn-primary mb-3"

@@ -15,7 +15,7 @@ class CreateStrukturalsTable extends Migration
     {
         Schema::create('struktural', function (Blueprint $table) {
             $table->bigIncrements('id_struktural');
-            $table->string('nama_struktural');
+            $table->string('nama_struktural')->nullable();
             $table->timestamps();
         });
     }

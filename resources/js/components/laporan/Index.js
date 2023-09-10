@@ -59,23 +59,23 @@ class Laporan extends Component {
                 <div className="row justify-content-center">
                     <div className="col-md-10">
                         <div className="card">
-                            <div className="card-body">
+                            <div className="card-header bg-primary text-white">
                                 Laporan <br />
                                 Presensi pada bulan {this.handleMonth(
                                     month
                                 )}{" "}
-                                {year} <br />
+                                {year}
+                            </div>
+                            <div className="card-body">
                                 <a
                                     href={`/printPDF/${year}/${month}`}
                                     disabled={isLoading}
-                                    className="btn btn-primary mt-2"
+                                    className="btn btn-primary my-2"
                                 >
                                     {isLoading
                                         ? "Menghasilkan PDF..."
                                         : "Cetak PDF"}
                                 </a>
-                            </div>
-                            <div className="card-body">
                                 <div className="table-responsive">
                                     <table className="table table-bordered table-hover">
                                         <thead>

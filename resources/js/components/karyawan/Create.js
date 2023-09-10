@@ -10,8 +10,8 @@ class CreateKaryawan extends Component {
             nama_karyawan: "",
             id_fungsional: "",
             id_struktural: "",
-            fungsional: "",
-            struktural: "",
+            fungsional: [],
+            struktural: [],
             alert: null,
             errors: []
         };
@@ -111,7 +111,9 @@ class CreateKaryawan extends Component {
                 <div className="row justify-content-center">
                     <div className="col-md-6">
                         <div className="card">
-                            <div className="card-header">Tambah Karyawan</div>
+                            <div className="card-header bg-primary text-white">
+                                Tambah Karyawan
+                            </div>
                             <div className="card-body">
                                 <form onSubmit={this.handleCreateKaryawan}>
                                     <div className="form-group">
@@ -183,7 +185,7 @@ class CreateKaryawan extends Component {
                                             <option value="DEFAULT">
                                                 Pilih Struktural
                                             </option>
-                                            {struktural.nap((item, index) => (
+                                            {struktural.map((item, index) => (
                                                 <option
                                                     key={index}
                                                     value={item.id_struktural}
