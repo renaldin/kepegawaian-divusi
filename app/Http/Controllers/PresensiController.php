@@ -30,18 +30,31 @@ class PresensiController extends Controller
             'tanggal'           => 'required',
         ]);
 
-        $presensi = \App\Models\ModelPresensi::create();
+        $tanggal = $validatedData['tanggal'];
+        $id_karyawan = $validatedData['id_karyawan'];
 
-        $presensi->id_karyawan      = $validatedData['id_karyawan'];
-        $presensi->keterangan       = $validatedData['keterangan'];
-        $presensi->catatan          = $request->input('catatan');
-        $presensi->tanggal          = $validatedData['tanggal'];
-        $presensi->save();
+        $presensiCheck = $this->ModelPresensi->check($id_karyawan, $tanggal);
+        if ($presensiCheck != null) {
+            $msg = [
+                'success' => false,
+                'message' => 'Presensi gagal ditambahkan! Pada tanggal tersebut karyawan sudah
+                melakukan presensi.'
+            ];
+        } else {
 
-        $msg = [
-            'success' => true,
-            'message' => 'Presensi Berhasil Ditambahkan!'
-        ];
+            $presensi = \App\Models\ModelPresensi::create();
+
+            $presensi->id_karyawan      = $validatedData['id_karyawan'];
+            $presensi->keterangan       = $validatedData['keterangan'];
+            $presensi->catatan          = $request->input('catatan');
+            $presensi->tanggal          = $validatedData['tanggal'];
+            $presensi->save();
+
+            $msg = [
+                'success' => true,
+                'message' => 'Presensi Berhasil Ditambahkan!'
+            ];
+        }
 
         return response()->json($msg);
     }
