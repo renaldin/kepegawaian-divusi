@@ -15,7 +15,7 @@ class CreateFungsionalsTable extends Migration
     {
         Schema::create('fungsional', function (Blueprint $table) {
             $table->bigIncrements('id_fungsional');
-            $table->string('nama_fungsional');
+            $table->string('nama_fungsional')->nullable();
             $table->timestamps();
         });
     }

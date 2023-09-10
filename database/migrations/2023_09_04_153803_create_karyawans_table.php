@@ -17,8 +17,8 @@ class CreateKaryawansTable extends Migration
             $table->bigIncrements('id_karyawan');
             $table->integer('nip')->nullable();
             $table->string('nama_karyawan')->nullable();
-            $table->integer('id_fungsional')->nullable();
-            $table->integer('id_struktural')->nullable();
+            $table->bigInteger('id_fungsional')->nullable();
+            $table->bigInteger('id_struktural')->nullable();
             $table->timestamps();
         });
     }
